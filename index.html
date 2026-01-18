@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chúc mừng sinh nhật Hoàng Nguyên nha </title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      overflow: hidden;
+    }
+    .card {
+      background: white;
+      padding: 40px 50px;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+      animation: pop 0.8s ease;
+    }
+    h1 {
+      margin: 0 0 10px;
+      font-size: 2.5rem;
+      color: #ff4d6d;
+    }
+    p {
+      font-size: 1.1rem;
+      color: #333;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      background: #ff4d6d;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #e63e5c;
+    }
+    .confetti {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: red;
+      animation: fall linear infinite;
+    }
+    @keyframes fall {
+      from { transform: translateY(-10px) rotate(0deg); }
+      to { transform: translateY(110vh) rotate(360deg); }
+    }
+    @keyframes pop {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>🎉 Chúc mừng sinh nhật 🎂</h1>
+    <p>Chúc bạn tuổi mới tán đổ em nớ, mạnh khỏe và chăm học</p>
+    <button onclick="makeConfetti()">Bấm để tích phúc ĐỨC</button>
+  </div>
+
+  <script>
+    function makeConfetti() {
+      for (let i = 0; i < 50; i++) {
+        const c = document.createElement('div');
+        c.className = 'confetti';
+        c.style.left = Math.random() * 100 + 'vw';
+        c.style.backgroundColor = `hsl(${Math.random() * 360}, 80%, 60%)`;
+        c.style.animationDuration = 2 + Math.random() * 3 + 's';
+        document.body.appendChild(c);
+        setTimeout(() => c.remove(), 4000);
+      }
+    }
+  </script>
+</body>
+</html>
